@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Makuo Okoene — Security &amp; applied AI</title>
+<meta name="description" content="Final-year computer science student at EPITA Paris, specialising in information systems security. Looking for a six-month end-of-study internship.">
+
+<!--
+  ==========================================================================
+  THINGS TO EDIT BEFORE YOU DEPLOY  (search for "EDIT:" to find them fast)
+  1. Internship start date + duration in the availability line
+  2. Email address (gmail vs outlook — pick one and use it everywhere)
+  3. Any project link marked "repo private" — make the repo public or drop the link
+  4. Your French level, if it's moved since A2
+  ==========================================================================
+-->
+
+<meta property="og:title" content="Makuo Okoene — Security & applied AI">
+<meta property="og:description" content="Final-year CS student at EPITA Paris. Security, applied AI, and things that ship.">
+<meta property="og:type" content="profile">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:   #edefe8;
+    --card:    #f6f7f2;
+    --ink:     #16211a;
+    --ink-mid: #4a574e;
+    --line:    #cdd4c6;
+    --gold:    #c8862b;
+    --gold-dp: #7a5310;
+
+    --serif: "Fraunces", Georgia, serif;
+    --sans:  "Karla", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:inherit; }
+
+  :focus-visible{
+    outline:2px solid var(--gold-dp);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  .skip{
+    position:absolute; left:-9999px;
+    background:var(--ink); color:var(--paper);
+    padding:.6rem 1rem;
+  }
+  .skip:focus{ left:1rem; top:1rem; z-index:20; }
+
+  .shell{
+    max-width:1180px;
+    margin:0 auto;
+    padding:clamp(2rem,5vw,4.5rem) clamp(1.25rem,5vw,3.5rem) 5rem;
+    display:grid;
+    gap:clamp(2.5rem,5vw,4.5rem);
+  }
+  @media (min-width:900px){
+    .shell{ grid-template-columns:minmax(290px,340px) 1fr; align-items:start; }
+  }
+
+  /* ---------- left rail ---------- */
+
+  .rail{ position:relative; }
+  @media (min-width:900px){
+    .rail{ position:sticky; top:clamp(2rem,5vw,4.5rem); }
+  }
+
+  .name{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(2.7rem,6.4vw,3.6rem);
+    line-height:.97;
+    letter-spacing:-.022em;
+    margin:0 0 1.1rem;
+  }
+  .name span{ display:block; }
+
+  .role{
+    font-size:1.02rem;
+    color:var(--ink-mid);
+    margin:0 0 1.5rem;
+    max-width:30ch;
+  }
+
+  .avail{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:1rem 0;
+    margin:0 0 1.6rem;
+    font-size:.97rem;
+  }
+  .avail strong{
+    font-weight:600;
+    background-image:linear-gradient(var(--gold),var(--gold));
+    background-repeat:no-repeat;
+    background-position:0 88%;
+    background-size:0% .32em;
+    animation:draw .7s .35s cubic-bezier(.22,.7,.3,1) forwards;
+  }
+  @keyframes draw{ to{ background-size:100% .32em; } }
+  @media (prefers-reduced-motion: reduce){
+    .avail strong{ animation:none; background-size:100% .32em; }
+  }
+
+  .nav{ display:none; }
+  @media (min-width:900px){
+    .nav{ display:block; margin:0 0 1.7rem; }
+  }
+  .nav ol{ list-style:none; margin:0; padding:0; }
+  .nav li{ margin:0 0 .3rem; }
+  .nav a{
+    text-decoration:none;
+    color:var(--ink-mid);
+    font-size:.95rem;
+    border-bottom:1px solid transparent;
+  }
+  .nav a:hover{ color:var(--ink); border-bottom-color:var(--gold); }
+
+  .contact{ list-style:none; margin:0; padding:0; font-size:.95rem; }
+  .contact li{ margin:0 0 .42rem; }
+  .contact a{
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+    padding-bottom:1px;
+  }
+  .contact a:hover{ border-bottom-color:var(--gold); color:var(--gold-dp); }
+  .contact .where{ color:var(--ink-mid); }
+
+  /* ---------- main column ---------- */
+
+  .lede{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(1.22rem,2.4vw,1.5rem);
+    line-height:1.45;
+    letter-spacing:-.01em;
+    max-width:32ch;
+    margin:0 0 1.3rem;
+  }
+
+  .intro p{ max-width:62ch; margin:0 0 1rem; color:var(--ink-mid); }
+  .intro p:last-child{ margin-bottom:0; }
+
+  section + section{ margin-top:clamp(2.8rem,5vw,4rem); }
+
+  h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:1.28rem;
+    letter-spacing:-.01em;
+    margin:0 0 1.4rem;
+    padding-bottom:.55rem;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* projects */
+
+  .project{
+    display:grid;
+    gap:.15rem .9rem;
+    padding:1.15rem 0;
+    border-bottom:1px solid var(--line);
+  }
+  .project:first-of-type{ padding-top:0; }
+  @media (min-width:620px){
+    .project{ grid-template-columns:4.2rem 1fr; }
+  }
+
+  .year{
+    font-size:.87rem;
+    color:var(--ink-mid);
+    font-variant-numeric:tabular-nums;
+    padding-top:.22rem;
+  }
+
+  .project h3{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:1.1rem;
+    margin:0 0 .3rem;
+  }
+  .project h3 a{ text-decoration:none; border-bottom:1.5px solid var(--gold); }
+  .project h3 a:hover{ color:var(--gold-dp); }
+
+  .project p{ margin:0 0 .5rem; max-width:60ch; color:var(--ink-mid); }
+
+  .stack{
+    font-size:.86rem;
+    color:var(--ink-mid);
+    letter-spacing:.005em;
+  }
+
+  .links{ margin-top:.45rem; font-size:.9rem; }
+  .links a{
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+    margin-right:1rem;
+  }
+  .links a:hover{ border-bottom-color:var(--gold); color:var(--gold-dp); }
+
+  /* experience */
+
+  .job{
+    padding:1.1rem 0;
+    border-bottom:1px solid var(--line);
+    display:grid;
+    gap:.15rem .9rem;
+  }
+  .job:first-of-type{ padding-top:0; }
+  @media (min-width:620px){
+    .job{ grid-template-columns:8.5rem 1fr; }
+  }
+  .when{ font-size:.87rem; color:var(--ink-mid); padding-top:.2rem; }
+  .job h3{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:1.06rem;
+    margin:0 0 .25rem;
+  }
+  .job h3 em{ font-style:normal; color:var(--ink-mid); font-family:var(--sans); font-size:.93rem; }
+  .job p{ margin:0; max-width:60ch; color:var(--ink-mid); }
+
+  /* skills */
+
+  .skills{ display:grid; gap:1.1rem; }
+  @media (min-width:640px){ .skills{ grid-template-columns:1fr 1fr; gap:1.1rem 2rem; } }
+  .skills div h3{
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:.95rem;
+    margin:0 0 .25rem;
+  }
+  .skills div p{ margin:0; color:var(--ink-mid); font-size:.96rem; }
+
+  /* closing */
+
+  .closing{
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:clamp(1.3rem,3vw,1.9rem);
+    margin-top:clamp(2.8rem,5vw,4rem);
+  }
+  .closing h2{ border:0; padding:0; margin-bottom:.6rem; }
+  .closing p{ margin:0 0 1rem; max-width:52ch; color:var(--ink-mid); }
+  .closing a{
+    font-weight:600;
+    text-decoration:none;
+    border-bottom:2px solid var(--gold);
+  }
+  .closing a:hover{ color:var(--gold-dp); }
+
+  footer{
+    margin-top:2.4rem;
+    font-size:.86rem;
+    color:var(--ink-mid);
+  }
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="shell">
+
+  <!-- ============ LEFT RAIL ============ -->
+  <header class="rail">
+    <h1 class="name"><span>Makuo</span><span>Okoene</span></h1>
+
+    <p class="role">Final-year computer science student at EPITA Paris, specialising in information systems security.</p>
+
+    <!-- EDIT: check the start date and duration against your school calendar -->
+    <p class="avail"><strong>Available for a six-month end-of-study internship from spring 2027</strong>, based in Paris or remote.</p>
+
+    <nav class="nav" aria-label="Sections">
+      <ol>
+        <li><a href="#work">Selected work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+      </ol>
+    </nav>
+
+    <ul class="contact">
+      <!-- EDIT: use one email everywhere — your GitHub README currently shows a different one -->
+      <li><a href="mailto:okoenemakuo04@gmail.com">okoenemakuo04@gmail.com</a></li>
+      <li><a href="https://github.com/Evelynval-w">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/okoene-makuo-56932b259/">LinkedIn</a></li>
+      <li><a href="https://huggingface.co/Evelynval-w">Hugging Face</a></li>
+      <li class="where">Noisy-le-Grand, Île-de-France</li>
+    </ul>
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <main id="main">
+
+    <section class="intro" aria-label="Introduction">
+      <p class="lede">I build things where security meets applied AI, and I ship them.</p>
+      <p>Three years at EPITA have given me the two halves I care about: the security side — identity and access management, networking, GDPR, secure system design — and the building side, mostly Python, JavaScript and TypeScript, with LLM applications on top.</p>
+      <p>Outside coursework I work part-time as an inventory auditor and take freelance AI evaluation and annotation contracts, which means I've spent a lot of hours reading model output closely and judging whether it's actually correct.</p>
+    </section>
+
+    <section id="work">
+      <h2>Selected work</h2>
+
+      <article class="project">
+        <div class="year">2026</div>
+        <div>
+          <h3><a href="https://evfix-seven.vercel.app">EVFLIX</a></h3>
+          <p>A streaming-style front end with an AI assistant that answers questions about the catalogue in context. Built while working through LLM application patterns — prompt design, model routing, handling responses that arrive slowly or not at all.</p>
+          <p class="stack">JavaScript, React, Hugging Face Inference, Vercel</p>
+          <p class="links">
+            <a href="https://evfix-seven.vercel.app">Live site</a>
+            <a href="https://github.com/Evelynval-w/ai-engineering">Source</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="year">2026</div>
+        <div>
+          <h3>SnapQuest — network layer</h3>
+          <p>Android photo-challenge app built by a five-person team. I owned connectivity: the BroadcastReceiver watching network state, the Application subclass, the repository that exposes it, and the online/offline badge the rest of the UI reads from — so the app degrades cleanly instead of hanging when the signal drops.</p>
+          <p class="stack">Java, Android SDK 24+, BroadcastReceiver, Git feature-branch workflow</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="year">2026</div>
+        <div>
+          <h3>Dark Scan</h3>
+          <p>An agent that reads a web page and flags dark patterns — forced continuity, disguised ads, confirmshaming. Built for the AMD Developer Hackathon. The interesting problem was scoring confidence: a manipulative interface and a merely ugly one look similar to a model.</p>
+          <p class="stack">Python, LLM agent, web scraping</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="year">2026</div>
+        <div>
+          <h3>CyberGuide</h3>
+          <p>A chatbot that answers cybersecurity questions for non-specialists, with a fallback chain across providers so a rate limit on one doesn't take the whole thing down.</p>
+          <p class="stack">Node.js, React, Groq, OpenRouter</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="year">2026</div>
+        <div>
+          <h3><a href="https://github.com/Evelynval-w/synergyhack">SynergyHack — polyglot persistence</a></h3>
+          <p>One dataset, three stores, each chosen for what it's good at: MongoDB for documents, Neo4j for the relationship graph, Redis for the hot path. Built largely solo, and the part I'd defend is the decision record for which query goes where.</p>
+          <p class="stack">MongoDB, Neo4j, Redis, JavaScript</p>
+          <p class="links"><a href="https://github.com/Evelynval-w/synergyhack">Source</a></p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="year">2026</div>
+        <div>
+          <h3>GameHub — microservices</h3>
+          <p>A games platform split into services that talk over a message broker rather than calling each other directly, containerised end to end. Paired with a distributed-systems exam project where I implemented the compensation pattern for a trip-booking flow — the undo path when step three of four fails.</p>
+          <p class="stack">Python, Flask, FastAPI, RabbitMQ, Docker</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="year">2026</div>
+        <div>
+          <h3>Identity and access management labs</h3>
+          <p>Hands-on IAM/IGA work: Keycloak and MidPoint for provisioning and governance, OpenLDAP as the directory, federation into Entra ID. Less glamorous than the AI work, and closer to what security teams actually spend their week on.</p>
+          <p class="stack">Keycloak, MidPoint, OpenLDAP, Microsoft Entra ID</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="year">2026</div>
+        <div>
+          <h3><a href="https://github.com/Evelynval-w/timeout-airline">Timeout Airline</a></h3>
+          <p>An airline booking system in Java — seat inventory, fare rules, and the state machine a reservation moves through. EPITA coursework, and the project where object modelling finally clicked.</p>
+          <p class="stack">Java</p>
+          <p class="links"><a href="https://github.com/Evelynval-w/timeout-airline">Source</a></p>
+        </div>
+      </article>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="job">
+        <div class="when">Aug 2026</div>
+        <div>
+          <h3>Split Papy — <em>Intern, Fracton creator platform</em></h3>
+          <p>One-month EPITA internship on a creator-reward platform, fully remote at 35h/week. Growth and creator acquisition: finding creators who fit the product, working out what would actually make them sign up, and reporting to the managing director.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">2025 — present</div>
+        <div>
+          <h3>Freelance — <em>AI data annotation &amp; model evaluation</em></h3>
+          <p>Contract work across Outlier, Alignerr, micro1, AfterQuery and others: rating model responses, writing reference answers, and catching the failure modes that look fluent but aren't right.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">2025 — present</div>
+        <div>
+          <h3>RGIS France — <em>Inventory auditor, part-time</em></h3>
+          <p>Stock counts for retail clients across Île-de-France. Early starts, precision under time pressure, and a working French vocabulary I didn't have before.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">2025</div>
+        <div>
+          <h3>Beats by Dre — <em>Data analytics externship</em></h3>
+          <p>Remote externship through Extern: consumer data analysis and a recommendation presented back to the brief.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div>
+          <h3>Languages</h3>
+          <p>Python, JavaScript, TypeScript, Java, SQL, PHP</p>
+        </div>
+        <div>
+          <h3>Security</h3>
+          <p>IAM/IGA, Keycloak, MidPoint, OpenLDAP, Entra ID federation, GDPR, secure design</p>
+        </div>
+        <div>
+          <h3>Backend &amp; infrastructure</h3>
+          <p>FastAPI, Flask, Node.js, Docker, RabbitMQ, PostgreSQL, MongoDB, Neo4j, Redis</p>
+        </div>
+        <div>
+          <h3>AI</h3>
+          <p>LLM application design, RAG pipelines, agent evaluation, Hugging Face, prompt engineering</p>
+        </div>
+        <div>
+          <h3>Networking</h3>
+          <p>BGP, VRF, GNS3 lab work, enterprise network fundamentals</p>
+        </div>
+        <div>
+          <h3>Spoken</h3>
+          <!-- EDIT: update your French level if it's moved -->
+          <p>English (native), Igbo (native), French (conversational, A2 and climbing)</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+
+      <div class="job">
+        <div class="when">2024 — 2027</div>
+        <div>
+          <h3>EPITA Paris — <em>BSc Computer Science, security specialisation (SSI)</em></h3>
+          <p>Three-year programme, currently in the final year. Coursework across distributed systems, databases, networking, web development and information systems security.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">2026</div>
+        <div>
+          <h3>Google AI Professional Certificate — <em>Coursera</em></h3>
+          <p>Eight-course programme covering applied AI foundations and workflow design.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">2026</div>
+        <div>
+          <h3>Machine Learning Specialization — <em>DeepLearning.AI, in progress</em></h3>
+          <p>Andrew Ng's specialisation: regression, classification, and the maths underneath rather than the API on top.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <h2>Hiring for spring 2027?</h2>
+      <p>I'm looking for a six-month end-of-study internship in security engineering, applied AI, or somewhere the two overlap. Happy to talk through any of the projects above in detail.</p>
+      <p><a href="mailto:okoenemakuo04@gmail.com">Email me</a></p>
+    </section>
+
+    <footer>
+      <p>Built and deployed by me. Last updated September 2026.</p>
+    </footer>
+
+  </main>
+</div>
+</body>
+</html>
