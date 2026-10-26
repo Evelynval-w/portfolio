@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Makuo Okoene — Sécurité &amp; IA appliquée</title>
-<meta name="description" content="Étudiante en 3e année d'informatique à l'EPITA Paris, spécialisation sécurité des systèmes d'information. Recherche un stage de fin d'études de 6 mois à partir de février 2027.">
-<meta property="og:title" content="Makuo Okoene — Sécurité & IA appliquée">
+<title>Makuo Okoene — Machine learning &amp; IA appliquée</title>
+<meta name="description" content="Étudiante en 3e année d'informatique à l'EPITA Paris, spécialisée en machine learning. Recherche un stage de fin d'études de 6 mois à partir de février 2027.">
+<meta property="og:title" content="Makuo Okoene — Machine learning & IA appliquée">
 <meta property="og:description" content="Étudiante en informatique à l'EPITA Paris. Stage de fin d'études, février 2027.">
 
 
@@ -281,6 +281,19 @@ section.band{ padding-block:clamp(3.2rem,7vw,5.5rem); border-top:1px solid var(-
 }
 .art svg{ width:100%; height:100%; }
 
+.card.feature{ grid-column:1 / -1; }
+.card.feature .body{ display:flex; flex-direction:column; flex:1; }
+@media (min-width:760px){
+  .card.feature{ flex-direction:row; align-items:stretch; gap:1.75rem; }
+  .card.feature.alt{ flex-direction:row-reverse; }
+  .card.feature .art{ flex:0 0 52%; margin:0; align-self:center; }
+  .card.feature .body{ justify-content:center; }
+  .card.feature .tags{ margin-top:.2rem; }
+}
+.art.art-video{ height:auto; aspect-ratio:16/9; display:block; background:#16121c; }
+.art.art-video video{ width:100%; height:100%; object-fit:cover; display:block; }
+
+
 .card h3{
   font-family:var(--display);
   font-weight:600; font-size:1.15rem;
@@ -395,7 +408,7 @@ footer{
           <span class="line2" data-fr="des systèmes fiables." data-en="systems that hold.">des systèmes fiables.</span>
         </h1>
 
-        <p class="intro reveal" data-fr="Je suis Makuo Okoene, étudiante en 3ᵉ année d'informatique à l'EPITA Paris. Je recherche un stage de fin d'études de 6 mois à partir de février 2027, afin de mettre mes compétences en sécurité, développement et intelligence artificielle au service d'équipes qui construisent des systèmes fiables." data-en="My name is Makuo Okoene, and I am a third-year computer science student at EPITA Paris. I am looking for a 6-month end-of-studies internship starting in February 2027, in order to put my skills in security, development, and artificial intelligence to work for teams building reliable systems.">Je suis Makuo Okoene, étudiante en 3ᵉ année d'informatique à l'EPITA Paris. Je recherche un stage de fin d'études de 6 mois à partir de février 2027, afin de mettre mes compétences en sécurité, développement et intelligence artificielle au service d'équipes qui construisent des systèmes fiables.</p>
+        <p class="intro reveal" data-fr="Je suis Makuo Okoene, étudiante en 3ᵉ année d'informatique à l'EPITA Paris. Je recherche un stage de fin d'études de 6 mois à partir de février 2027, afin de mettre mes compétences en machine learning, traitement de données et développement backend au service d'équipes qui construisent des systèmes d'IA fiables." data-en="My name is Makuo Okoene, and I am a third-year computer science student at EPITA Paris. I am looking for a 6-month end-of-studies internship starting in February 2027, in order to put my skills in machine learning, data processing, and backend development to work for teams building reliable AI systems.">Je suis Makuo Okoene, étudiante en 3ᵉ année d'informatique à l'EPITA Paris. Je recherche un stage de fin d'études de 6 mois à partir de février 2027, afin de mettre mes compétences en machine learning, traitement de données et développement backend au service d'équipes qui construisent des systèmes d'IA fiables.</p>
 
         <div class="cta-row reveal">
           <a class="btn btn-solid" href="#projets" data-fr="Voir mes projets" data-en="See my work">Voir mes projets</a>
@@ -421,10 +434,61 @@ footer{
     <div class="wrap">
       <div class="head">
         <h2 data-fr="Projets" data-en="Selected work">Projets</h2>
-        <p data-fr="Des applications LLM aux architectures distribuées, en passant par la gestion des identités." data-en="From LLM applications to distributed architectures and identity management.">Des applications LLM aux architectures distribuées, en passant par la gestion des identités.</p>
+        <p data-fr="Du machine learning aux architectures distribuées, en passant par les applications LLM." data-en="From machine learning to distributed architectures and LLM applications.">Du machine learning aux architectures distribuées, en passant par les applications LLM.</p>
       </div>
 
       <div class="cards">
+
+        <!-- Credit_risk -->
+        <article class="card feature">
+          <div class="art art-video">
+            <video muted loop playsinline preload="metadata" poster="media/credit-risk-poster-fr.jpg"
+                   data-src-fr="media/credit-risk-fr.mp4" data-src-en="media/credit-risk-en.mp4"
+                   data-poster-fr="media/credit-risk-poster-fr.jpg" data-poster-en="media/credit-risk-poster-en.jpg"
+                   data-label-fr="Animation : 250 000 prêts, 7 modèles comparés, gain de 1,76 M$" data-label-en="Animation: 250K loans, 7 models compared, $1.76M gain"
+                   aria-label="Animation : 250 000 prêts, 7 modèles comparés, gain de 1,76 M$"></video>
+          </div>
+          <div class="body">
+          <h3>Credit_risk</h3>
+          <p data-fr="Pipeline de bout en bout sur 250 000 prêts Lending Club, avec séparation temporelle et correction des fuites de données. Sept modèles comparés ; XGBoost en tête (ROC-AUC 0,709, PR-AUC 0,452). Seuil optimisé sur le profit : +1,76 M$ face à l'approbation systématique." data-en="End-to-end pipeline on 250K Lending Club loans, with a temporal split and data-leakage fixes. Seven models compared; XGBoost leads (ROC-AUC 0.709, PR-AUC 0.452). Profit-based threshold: +$1.76M versus approving every loan.">Pipeline de bout en bout sur 250 000 prêts Lending Club, avec séparation temporelle et correction des fuites de données. Sept modèles comparés ; XGBoost en tête (ROC-AUC 0,709, PR-AUC 0,452). Seuil optimisé sur le profit : +1,76 M$ face à l'approbation systématique.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">scikit-learn</span><span class="tag">XGBoost</span></div>
+          <div class="links"><a href="https://github.com/Evelynval-w/credit_risk_ML_model" data-fr="Code" data-en="Source">Code</a></div>
+        </div>
+        </article>
+
+        <!-- Fracton Scanner -->
+        <article class="card feature alt">
+          <div class="art art-video">
+            <video muted loop playsinline preload="metadata" poster="media/fracton-scanner-poster-fr.jpg"
+                   data-src-fr="media/fracton-scanner-fr.mp4" data-src-en="media/fracton-scanner-en.mp4"
+                   data-poster-fr="media/fracton-scanner-poster-fr.jpg" data-poster-en="media/fracton-scanner-poster-en.jpg"
+                   data-label-fr="Animation : balayage horaire de l'API Twitch, qualification, notation et publication des rapports" data-label-en="Animation: hourly Twitch API sweep, qualification, scoring and report publishing"
+                   aria-label="Animation : balayage horaire de l'API Twitch, qualification, notation et publication des rapports"></video>
+          </div>
+          <div class="body">
+          <h3>Fracton Scanner</h3>
+          <p data-fr="Service Python auto-hébergé qui repère et note de petits streamers Twitch anglophones sur un marché cible. Chaque heure, il interroge l'API Twitch, déduit la localisation à partir du profil et des horaires de stream, écarte les rediffusions en continu et les chaînes de farm de badges, classe les chaînes, puis publie un classeur Excel, un tableau interactif et un journal des changements. Il tourne sur GitHub Actions et Docker, sans scraping." data-en="A self-hosted Python service that finds and scores small English-language Twitch streamers in a target market. Every hour it queries the Twitch API, infers location from profile text and streaming hours, filters out 24/7 reruns and badge farms, ranks the channels, then publishes an Excel workbook, an interactive board and a change log. It runs on GitHub Actions and Docker, with no scraping.">Service Python auto-hébergé qui repère et note de petits streamers Twitch anglophones sur un marché cible. Chaque heure, il interroge l'API Twitch, déduit la localisation à partir du profil et des horaires de stream, écarte les rediffusions en continu et les chaînes de farm de badges, classe les chaînes, puis publie un classeur Excel, un tableau interactif et un journal des changements. Il tourne sur GitHub Actions et Docker, sans scraping.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Twitch API</span><span class="tag">SQLite</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span></div>
+          <div class="links"><a href="https://github.com/Evelynval-w/fracton-scanner" data-fr="Code" data-en="Source">Code</a></div>
+        </div>
+        </article>
+
+        <!-- SynergyHack -->
+        <article class="card feature">
+          <div class="art art-video">
+            <video muted loop playsinline preload="metadata" poster="media/synergyhack-poster-fr.jpg"
+                   data-src-fr="media/synergyhack-fr.mp4" data-src-en="media/synergyhack-en.mp4"
+                   data-poster-fr="media/synergyhack-poster-fr.jpg" data-poster-en="media/synergyhack-poster-en.jpg"
+                   data-label-fr="Animation : trois bases de données et mise en correspondance par graphe" data-label-en="Animation: three databases and graph-based team matching"
+                   aria-label="Animation : trois bases de données et mise en correspondance par graphe"></video>
+          </div>
+          <div class="body">
+          <h3>SynergyHack</h3>
+          <p data-fr="Un même jeu de données réparti sur trois bases, chacune choisie pour ce qu'elle sait faire : MongoDB pour les documents, Neo4j pour le graphe, Redis pour les accès chauds." data-en="One dataset across three stores, each chosen for what it's actually good at: MongoDB for documents, Neo4j for the relationship graph, Redis for the hot path.">Un même jeu de données réparti sur trois bases, chacune choisie pour ce qu'elle sait faire : MongoDB pour les documents, Neo4j pour le graphe, Redis pour les accès chauds.</p>
+          <div class="tags"><span class="tag">MongoDB</span><span class="tag">Neo4j</span><span class="tag">Redis</span></div>
+          <div class="links"><a href="https://github.com/Evelynval-w/synergyhack" data-fr="Code" data-en="Source">Code</a></div>
+        </div>
+        </article>
 
         <!-- EVFLIX -->
         <article class="card">
@@ -464,22 +528,7 @@ footer{
           <div class="tags"><span class="tag">Java</span><span class="tag">Android SDK</span><span class="tag">BroadcastReceiver</span></div>
         </article>
 
-        <!-- SynergyHack -->
-        <article class="card">
-          <div class="art">
-            <svg viewBox="0 0 220 120" fill="none" aria-hidden="true">
-              <ellipse cx="50" cy="44" rx="22" ry="8" stroke="#7fd1c1" stroke-opacity=".6"/>
-              <path d="M28 44v22c0 4.4 9.8 8 22 8s22-3.6 22-8V44" stroke="#7fd1c1" stroke-opacity=".6"/>
-              <circle cx="122" cy="40" r="7" stroke="#e8a33d"/><circle cx="150" cy="62" r="7" stroke="#e8a33d"/><circle cx="118" cy="80" r="7" stroke="#e8a33d"/>
-              <path d="M127 46l18 11M145 68l-21 9M120 73V47" stroke="#e8a33d" stroke-opacity=".6"/>
-              <path d="M180 40h22v14h-22zM180 62h22v14h-22z" stroke="#a396ae" stroke-opacity=".55"/>
-            </svg>
-          </div>
-          <h3>SynergyHack</h3>
-          <p data-fr="Un même jeu de données réparti sur trois bases, chacune choisie pour ce qu'elle sait faire : MongoDB pour les documents, Neo4j pour le graphe, Redis pour les accès chauds." data-en="One dataset across three stores, each chosen for what it's actually good at: MongoDB for documents, Neo4j for the relationship graph, Redis for the hot path.">Un même jeu de données réparti sur trois bases, chacune choisie pour ce qu'elle sait faire : MongoDB pour les documents, Neo4j pour le graphe, Redis pour les accès chauds.</p>
-          <div class="tags"><span class="tag">MongoDB</span><span class="tag">Neo4j</span><span class="tag">Redis</span></div>
-          <div class="links"><a href="https://github.com/Evelynval-w/synergyhack" data-fr="Code" data-en="Source">Code</a></div>
-        </article>
+        
 
         <!-- GameHub -->
         <article class="card">
@@ -558,8 +607,8 @@ footer{
           <div class="item">
             <div class="when">2024 — 2027</div>
             <h3>EPITA Paris</h3>
-            <p class="org" data-fr="Informatique, spécialisation sécurité (SSI)" data-en="Computer science, security specialisation (SSI)">Informatique, spécialisation sécurité (SSI)</p>
-            <p data-fr="Systèmes distribués, bases de données, réseaux, développement web et sécurité des systèmes d'information." data-en="Distributed systems, databases, networking, web development and information systems security.">Systèmes distribués, bases de données, réseaux, développement web et sécurité des systèmes d'information.</p>
+            <p class="org" data-fr="Informatique, spécialisation apprentissage automatique" data-en="Computer science, machine learning specialisation">Informatique, spécialisation apprentissage automatique</p>
+            <p data-fr="Intégration de systèmes d'IA, systèmes distribués, DevOps, réseaux d'entreprise et développement web." data-en="AI systems integration, distributed systems, DevOps, enterprise networking and web development.">Intégration de systèmes d'IA, systèmes distribués, DevOps, réseaux d'entreprise et développement web.</p>
           </div>
           <div class="item">
             <div class="when">2026</div>
@@ -586,6 +635,10 @@ footer{
         <div>
           <h3 data-fr="Langages" data-en="Languages">Langages</h3>
           <div class="tags"><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">Java</span><span class="tag">SQL</span><span class="tag">PHP</span></div>
+        </div>
+        <div>
+          <h3 data-fr="Machine learning &amp; données" data-en="Machine learning &amp; data">Machine learning &amp; données</h3>
+          <div class="tags"><span class="tag">pandas</span><span class="tag">NumPy</span><span class="tag">scikit-learn</span><span class="tag">XGBoost</span></div>
         </div>
         <div>
           <h3 data-fr="Sécurité &amp; IAM" data-en="Security &amp; IAM">Sécurité &amp; IAM</h3>
@@ -635,19 +688,46 @@ footer{
   var btn = document.getElementById('langBtn');
   var nodes = document.querySelectorAll('[data-fr]');
 
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var vids = document.querySelectorAll('video[data-src-fr]');
+  var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      var v = en.target;
+      if (en.isIntersecting && !reduce) { var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+      else { v.pause(); }
+    });
+  }, { threshold: 0.35 }) : null;
+  vids.forEach(function(v){ if (io) io.observe(v); });
+
+  function setVideos(lang){
+    vids.forEach(function(v){
+      var src = v.getAttribute('data-src-' + lang);
+      var label = v.getAttribute('data-label-' + lang);
+      if (label) v.setAttribute('aria-label', label);
+      if (src && v.getAttribute('src') !== src) {
+        v.setAttribute('poster', v.getAttribute('data-poster-' + lang));
+        v.setAttribute('src', src);
+        v.load();
+        if (!reduce && io === null) { var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+      }
+    });
+  }
+
   function apply(lang){
     nodes.forEach(function(el){
       var v = el.getAttribute('data-' + lang);
       if (v !== null) el.textContent = v;
     });
     document.documentElement.lang = lang;
+    setVideos(lang);
     btn.innerHTML = lang === 'fr' ? '<b>FR</b> / EN' : 'FR / <b>EN</b>';
     try { localStorage.setItem('lang', lang); } catch(e){}
   }
 
   var saved = 'fr';
   try { saved = localStorage.getItem('lang') || 'fr'; } catch(e){}
-  if (saved === 'en') apply('en');
+  if (saved === 'en') apply('en'); else setVideos('fr');
 
   btn.addEventListener('click', function(){
     apply(document.documentElement.lang === 'fr' ? 'en' : 'fr');
