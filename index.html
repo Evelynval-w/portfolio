@@ -16,19 +16,19 @@
 
 <style>
 :root{
-  --bg:      #16121c;
-  --bg-2:    #1e1826;
-  --surface: #241d2e;
-  --line:    #362c44;
-  --text:    #ede7f0;
-  --muted:   #a396ae;
-  --amber:   #e8a33d;
-  --mint:    #7fd1c1;
+  --bg:      #ffffff;
+  --bg-2:    #f6f5f2;
+  --surface: #ffffff;
+  --line:    #e4e1da;
+  --text:    #1d1b22;
+  --muted:   #5b5866;
+  --amber:   #b45309;
+  --mint:    #0f766e;
 
   --display: "Bricolage Grotesque", system-ui, sans-serif;
   --body:    "Newsreader", Georgia, serif;
 
-  --pad: clamp(1.25rem, 5vw, 5rem);
+  --pad: clamp(1.25rem, 4vw, 3.5rem);
 }
 
 *{ box-sizing:border-box; }
@@ -56,13 +56,13 @@ img{ max-width:100%; display:block; }
   border-radius:3px;
 }
 
-.wrap{ max-width:1160px; margin:0 auto; padding-inline:var(--pad); }
+.wrap{ max-width:1440px; margin:0 auto; padding-inline:var(--pad); }
 
 /* ---------------- nav ---------------- */
 
 .nav{
   position:sticky; top:0; z-index:50;
-  background:rgba(22,18,28,.78);
+  background:rgba(255,255,255,.88);
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
@@ -113,19 +113,12 @@ img{ max-width:100%; display:block; }
   padding-block:clamp(3rem,8vw,6.5rem) clamp(3.5rem,8vw,7rem);
   overflow:hidden;
 }
-.hero::before{
-  content:"";
-  position:absolute; inset:0;
-  background:
-    radial-gradient(52rem 26rem at 18% -6%, rgba(232,163,61,.10), transparent 60%),
-    radial-gradient(44rem 28rem at 8% 96%, rgba(127,209,193,.08), transparent 64%);
-  pointer-events:none;
-}
+.hero::before{ content:none; }
 .hero .wrap{ position:relative; }
 
 .hero-grid{ display:grid; gap:clamp(2.2rem,5vw,4rem); align-items:center; }
 @media (min-width:880px){
-  .hero-grid{ grid-template-columns:1.25fr .75fr; }
+  .hero-grid{ grid-template-columns:1.3fr .7fr; }
 }
 
 .status{
@@ -133,8 +126,8 @@ img{ max-width:100%; display:block; }
   font-family:var(--display);
   font-size:.83rem;
   color:var(--mint);
-  border:1px solid rgba(127,209,193,.32);
-  background:rgba(127,209,193,.07);
+  border:1px solid rgba(15,118,110,.3);
+  background:rgba(15,118,110,.07);
   border-radius:999px;
   padding:.32rem .85rem .32rem .7rem;
   margin-bottom:1.5rem;
@@ -142,12 +135,12 @@ img{ max-width:100%; display:block; }
 .dot{
   width:.46rem; height:.46rem; border-radius:50%;
   background:var(--mint);
-  box-shadow:0 0 0 0 rgba(127,209,193,.55);
+  box-shadow:0 0 0 0 rgba(15,118,110,.45);
   animation:pulse 2.6s ease-out infinite;
 }
 @keyframes pulse{
-  70%{ box-shadow:0 0 0 .55rem rgba(127,209,193,0); }
-  100%{ box-shadow:0 0 0 0 rgba(127,209,193,0); }
+  70%{ box-shadow:0 0 0 .55rem rgba(15,118,110,0); }
+  100%{ box-shadow:0 0 0 0 rgba(15,118,110,0); }
 }
 @media (prefers-reduced-motion: reduce){ .dot{ animation:none; } }
 
@@ -159,7 +152,7 @@ h1{
   letter-spacing:-.035em;
   margin:0 0 1.35rem;
 }
-h1 .line2{ display:block; color:var(--amber); }
+h1 .line2{ display:block; color:var(--mint); }
 
 .hero p.intro{
   font-size:clamp(1.06rem,1.9vw,1.24rem);
@@ -180,8 +173,8 @@ h1 .line2{ display:block; color:var(--amber); }
   border:1px solid transparent;
   transition:background .18s ease, border-color .18s ease, color .18s ease;
 }
-.btn-solid{ background:var(--amber); color:#1b1206; }
-.btn-solid:hover{ background:#f2b45a; }
+.btn-solid{ background:var(--text); color:#fff; }
+.btn-solid:hover{ background:#3a3744; }
 .btn-ghost{ border-color:var(--line); color:var(--text); }
 .btn-ghost:hover{ border-color:var(--amber); color:var(--amber); }
 
@@ -200,23 +193,12 @@ h1 .line2{ display:block; color:var(--amber); }
 .portrait{
   position:relative;
   justify-self:center;
-  width:min(20rem,72vw);
+  width:min(24rem,80vw);
   margin:0;
 }
-/* thin outer ring, crisp — no blur, no glow */
-.portrait::before{
-  content:"";
-  position:absolute;
-  inset:-.75rem;
-  border-radius:50%;
-  border:1px solid rgba(232,163,61,.55);
-}
 .portrait img{
-  position:relative;
-  width:100%; aspect-ratio:1; object-fit:cover;
-  border-radius:50%;
-  border:4px solid var(--surface);
-  box-shadow:0 0 0 1px var(--line);
+  width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center top;
+  border-radius:18px;
 }
 .portrait figcaption{
   position:relative;
@@ -224,9 +206,7 @@ h1 .line2{ display:block; color:var(--amber); }
   display:flex; align-items:center; justify-content:center; gap:.6rem;
   font-family:var(--display); font-size:.8rem; color:var(--muted);
 }
-.portrait figcaption::before{
-  content:""; width:1.6rem; height:1px; background:var(--amber); flex:none;
-}
+
 
 /* one page-load reveal */
 .reveal{ opacity:0; transform:translateY(14px); animation:in .75s cubic-bezier(.2,.7,.3,1) forwards; }
@@ -265,16 +245,14 @@ section.band{ padding-block:clamp(3.2rem,7vw,5.5rem); border-top:1px solid var(-
   display:flex; flex-direction:column;
   transition:border-color .2s ease, transform .2s ease;
 }
-.card:hover{ border-color:rgba(232,163,61,.45); }
+.card:hover{ border-color:rgba(180,83,9,.45); }
 
 .art{
   height:8.5rem;
   margin:-.4rem 0 1.15rem;
   border-radius:9px;
   background:
-    linear-gradient(rgba(255,255,255,.015),rgba(255,255,255,.015)),
-    repeating-linear-gradient(0deg, transparent 0 23px, rgba(255,255,255,.028) 23px 24px),
-    repeating-linear-gradient(90deg, transparent 0 23px, rgba(255,255,255,.028) 23px 24px);
+    #faf9f6;
   border:1px solid var(--line);
   display:grid; place-items:center;
   overflow:hidden;
@@ -290,7 +268,7 @@ section.band{ padding-block:clamp(3.2rem,7vw,5.5rem); border-top:1px solid var(-
   .card.feature .body{ justify-content:center; }
   .card.feature .tags{ margin-top:.2rem; }
 }
-.art.art-video{ height:auto; aspect-ratio:16/9; display:block; background:#16121c; }
+.art.art-video{ height:auto; aspect-ratio:16/9; display:block; background:#16121c; border:0; }
 .art.art-video video{ width:100%; height:100%; object-fit:cover; display:block; }
 
 
@@ -306,13 +284,13 @@ section.band{ padding-block:clamp(3.2rem,7vw,5.5rem); border-top:1px solid var(-
 .tag{
   font-family:var(--display); font-size:.76rem;
   color:var(--mint);
-  background:rgba(127,209,193,.08);
-  border:1px solid rgba(127,209,193,.2);
+  background:rgba(15,118,110,.07);
+  border:1px solid rgba(15,118,110,.22);
   border-radius:5px;
   padding:.2rem .5rem;
 }
 .card .links{ margin-top:1rem; font-family:var(--display); font-size:.87rem; display:flex; gap:1.1rem; }
-.card .links a{ color:var(--amber); text-decoration:none; border-bottom:1px solid rgba(232,163,61,.3); }
+.card .links a{ color:var(--amber); text-decoration:none; border-bottom:1px solid rgba(180,83,9,.35); }
 .card .links a:hover{ border-bottom-color:var(--amber); }
 
 /* timeline */
@@ -344,7 +322,7 @@ section.band{ padding-block:clamp(3.2rem,7vw,5.5rem); border-top:1px solid var(-
   font-family:var(--display); font-weight:600; font-size:.96rem;
   margin:0 0 .5rem; color:var(--amber);
 }
-.skills .tags .tag{ color:var(--text); background:rgba(255,255,255,.04); border-color:var(--line); }
+.skills .tags .tag{ color:var(--text); background:#f6f5f2; border-color:var(--line); }
 
 .two{ display:grid; gap:2.5rem; }
 @media (min-width:860px){ .two{ grid-template-columns:1.1fr .9fr; gap:4rem; } }
@@ -362,7 +340,7 @@ section.band{ padding-block:clamp(3.2rem,7vw,5.5rem); border-top:1px solid var(-
   font-family:var(--display); font-weight:600;
   font-size:clamp(1rem,2.6vw,1.35rem);
   color:var(--amber); text-decoration:none;
-  border-bottom:2px solid rgba(232,163,61,.35);
+  border-bottom:2px solid rgba(180,83,9,.4);
   padding-bottom:.2rem;
   word-break:break-all;
 }
@@ -494,13 +472,13 @@ footer{
         <article class="card">
           <div class="art">
             <svg viewBox="0 0 220 120" fill="none" aria-hidden="true">
-              <rect x="16" y="22" width="44" height="30" rx="4" stroke="#7fd1c1" stroke-opacity=".45"/>
-              <rect x="66" y="22" width="44" height="30" rx="4" stroke="#7fd1c1" stroke-opacity=".45"/>
-              <rect x="16" y="60" width="44" height="30" rx="4" stroke="#7fd1c1" stroke-opacity=".45"/>
-              <rect x="66" y="60" width="44" height="30" rx="4" stroke="#e8a33d"/>
-              <path d="M82 70l12 5-12 5z" fill="#e8a33d"/>
-              <path d="M130 34h62a6 6 0 016 6v26a6 6 0 01-6 6h-46l-12 10V40a6 6 0 016-6z" stroke="#e8a33d" stroke-opacity=".7"/>
-              <path d="M142 48h34M142 58h22" stroke="#7fd1c1" stroke-opacity=".8" stroke-linecap="round"/>
+              <rect x="16" y="22" width="44" height="30" rx="4" stroke="#0f766e" stroke-opacity=".45"/>
+              <rect x="66" y="22" width="44" height="30" rx="4" stroke="#0f766e" stroke-opacity=".45"/>
+              <rect x="16" y="60" width="44" height="30" rx="4" stroke="#0f766e" stroke-opacity=".45"/>
+              <rect x="66" y="60" width="44" height="30" rx="4" stroke="#b45309"/>
+              <path d="M82 70l12 5-12 5z" fill="#b45309"/>
+              <path d="M130 34h62a6 6 0 016 6v26a6 6 0 01-6 6h-46l-12 10V40a6 6 0 016-6z" stroke="#b45309" stroke-opacity=".7"/>
+              <path d="M142 48h34M142 58h22" stroke="#0f766e" stroke-opacity=".8" stroke-linecap="round"/>
             </svg>
           </div>
           <h3>EVFLIX</h3>
@@ -516,11 +494,11 @@ footer{
         <article class="card">
           <div class="art">
             <svg viewBox="0 0 220 120" fill="none" aria-hidden="true">
-              <rect x="86" y="32" width="48" height="60" rx="7" stroke="#7fd1c1" stroke-opacity=".55"/>
-              <circle cx="110" cy="62" r="9" stroke="#e8a33d"/>
-              <path d="M62 44a30 30 0 000 36M44 34a46 46 0 000 56" stroke="#e8a33d" stroke-opacity=".75" stroke-linecap="round"/>
-              <path d="M158 44a30 30 0 010 36" stroke="#7fd1c1" stroke-opacity=".5" stroke-linecap="round"/>
-              <path d="M176 34a46 46 0 01.5 56" stroke="#a396ae" stroke-opacity=".45" stroke-dasharray="4 5" stroke-linecap="round"/>
+              <rect x="86" y="32" width="48" height="60" rx="7" stroke="#0f766e" stroke-opacity=".55"/>
+              <circle cx="110" cy="62" r="9" stroke="#b45309"/>
+              <path d="M62 44a30 30 0 000 36M44 34a46 46 0 000 56" stroke="#b45309" stroke-opacity=".75" stroke-linecap="round"/>
+              <path d="M158 44a30 30 0 010 36" stroke="#0f766e" stroke-opacity=".5" stroke-linecap="round"/>
+              <path d="M176 34a46 46 0 01.5 56" stroke="#6b7280" stroke-opacity=".45" stroke-dasharray="4 5" stroke-linecap="round"/>
             </svg>
           </div>
           <h3>SnapQuest</h3>
@@ -534,13 +512,13 @@ footer{
         <article class="card">
           <div class="art">
             <svg viewBox="0 0 220 120" fill="none" aria-hidden="true">
-              <rect x="92" y="46" width="36" height="28" rx="5" stroke="#e8a33d"/>
-              <path d="M100 56h20M100 64h13" stroke="#e8a33d" stroke-opacity=".7" stroke-linecap="round"/>
-              <rect x="20" y="24" width="38" height="22" rx="4" stroke="#7fd1c1" stroke-opacity=".55"/>
-              <rect x="20" y="74" width="38" height="22" rx="4" stroke="#7fd1c1" stroke-opacity=".55"/>
-              <rect x="162" y="24" width="38" height="22" rx="4" stroke="#7fd1c1" stroke-opacity=".55"/>
-              <rect x="162" y="74" width="38" height="22" rx="4" stroke="#7fd1c1" stroke-opacity=".55"/>
-              <path d="M58 36h20v18h12M58 84h20V68h12M162 36h-20v18h-12M162 84h-20V68h-12" stroke="#a396ae" stroke-opacity=".5" stroke-dasharray="3 4"/>
+              <rect x="92" y="46" width="36" height="28" rx="5" stroke="#b45309"/>
+              <path d="M100 56h20M100 64h13" stroke="#b45309" stroke-opacity=".7" stroke-linecap="round"/>
+              <rect x="20" y="24" width="38" height="22" rx="4" stroke="#0f766e" stroke-opacity=".55"/>
+              <rect x="20" y="74" width="38" height="22" rx="4" stroke="#0f766e" stroke-opacity=".55"/>
+              <rect x="162" y="24" width="38" height="22" rx="4" stroke="#0f766e" stroke-opacity=".55"/>
+              <rect x="162" y="74" width="38" height="22" rx="4" stroke="#0f766e" stroke-opacity=".55"/>
+              <path d="M58 36h20v18h12M58 84h20V68h12M162 36h-20v18h-12M162 84h-20V68h-12" stroke="#6b7280" stroke-opacity=".5" stroke-dasharray="3 4"/>
             </svg>
           </div>
           <h3>GameHub</h3>
@@ -552,13 +530,13 @@ footer{
         <article class="card">
           <div class="art">
             <svg viewBox="0 0 220 120" fill="none" aria-hidden="true">
-              <circle cx="46" cy="60" r="12" stroke="#7fd1c1" stroke-opacity=".6"/>
-              <path d="M34 82a12 12 0 0124 0" stroke="#7fd1c1" stroke-opacity=".6"/>
-              <path d="M104 40l22 10v14c0 12-10 20-22 24-12-4-22-12-22-24V50z" stroke="#e8a33d"/>
-              <path d="M98 62l5 5 10-10" stroke="#e8a33d" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M62 60h18M148 60h14" stroke="#a396ae" stroke-opacity=".5" stroke-dasharray="3 4"/>
-              <rect x="164" y="40" width="34" height="40" rx="4" stroke="#7fd1c1" stroke-opacity=".5"/>
-              <path d="M164 52h34M164 66h34" stroke="#7fd1c1" stroke-opacity=".35"/>
+              <circle cx="46" cy="60" r="12" stroke="#0f766e" stroke-opacity=".6"/>
+              <path d="M34 82a12 12 0 0124 0" stroke="#0f766e" stroke-opacity=".6"/>
+              <path d="M104 40l22 10v14c0 12-10 20-22 24-12-4-22-12-22-24V50z" stroke="#b45309"/>
+              <path d="M98 62l5 5 10-10" stroke="#b45309" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M62 60h18M148 60h14" stroke="#6b7280" stroke-opacity=".5" stroke-dasharray="3 4"/>
+              <rect x="164" y="40" width="34" height="40" rx="4" stroke="#0f766e" stroke-opacity=".5"/>
+              <path d="M164 52h34M164 66h34" stroke="#0f766e" stroke-opacity=".35"/>
             </svg>
           </div>
           <h3 data-fr="Labs IAM" data-en="IAM labs">Labs IAM</h3>
@@ -585,13 +563,13 @@ footer{
             <p data-fr="Stage EPITA d'un mois sur une plateforme de rémunération des créateurs, 35h/semaine sous la supervision du DG. Acquisition de créateurs : identification des profils, arguments de conversion, reporting direct à la direction." data-en="One-month EPITA internship on a creator-reward platform, 35h/week reporting to the managing director. Creator acquisition: finding the right profiles, working out what converts, reporting straight to leadership.">Stage EPITA d'un mois sur une plateforme de rémunération des créateurs, 35h/semaine sous la supervision du DG. Acquisition de créateurs : identification des profils, arguments de conversion, reporting direct à la direction.</p>
           </div>
           <div class="item">
-            <div class="when" data-fr="2025 — aujourd'hui" data-en="2025 — present">2025 — aujourd'hui</div>
+            <div class="when" data-fr="2025 — octobre 2026" data-en="2025 — Oct 2026">2025 — octobre 2026</div>
             <h3 data-fr="Annotation &amp; évaluation IA" data-en="AI annotation &amp; evaluation">Annotation &amp; évaluation IA</h3>
             <p class="org" data-fr="Freelance — Outlier, Alignerr, micro1" data-en="Freelance — Outlier, Alignerr, micro1">Freelance — Outlier, Alignerr, micro1</p>
             <p data-fr="Évaluation de réponses de modèles, rédaction de réponses de référence, détection d'erreurs factuelles dans des sorties fluides mais fausses. Des centaines d'heures à lire du texte généré de très près." data-en="Rating model responses, writing reference answers, catching factual errors in output that reads fluently but isn't right. Hundreds of hours spent reading generated text very closely.">Évaluation de réponses de modèles, rédaction de réponses de référence, détection d'erreurs factuelles dans des sorties fluides mais fausses. Des centaines d'heures à lire du texte généré de très près.</p>
           </div>
           <div class="item">
-            <div class="when" data-fr="2025 — aujourd'hui" data-en="2025 — present">2025 — aujourd'hui</div>
+            <div class="when" data-fr="2025 — juillet 2026" data-en="2025 — Jul 2026">2025 — juillet 2026</div>
             <h3 data-fr="Inventoriste" data-en="Inventory auditor">Inventoriste</h3>
             <p class="org" data-fr="RGIS France — temps partiel" data-en="RGIS France — part-time">RGIS France — temps partiel</p>
             <p data-fr="Inventaires en magasin pour des clients du retail : précision sous contrainte de temps, en équipe, en environnement francophone." data-en="In-store stock counts for retail clients: precision under time pressure, in a team, working in French.">Inventaires en magasin pour des clients du retail : précision sous contrainte de temps, en équipe, en environnement francophone.</p>
