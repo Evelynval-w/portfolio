@@ -90,7 +90,7 @@ const EXPERIENCE = [
   {
     when: { fr: '2025 à octobre 2026', en: '2025 to Oct 2026' },
     title: { fr: 'Annotation & évaluation IA', en: 'AI annotation & evaluation' },
-    org: { fr: 'Freelance, Outlier, Alignerr, micro1', en: 'Freelance, Outlier, Alignerr, micro1' },
+    org: { fr: 'Freelance, Outlier', en: 'Freelance, Outlier' },
     text: {
       fr: "Évaluation de réponses de modèles, rédaction de réponses de référence, détection d'erreurs factuelles dans des sorties fluides mais fausses. Des centaines d'heures à lire du texte généré de très près.",
       en: "Rating model responses, writing reference answers, catching factual errors in output that reads fluently but isn't right. Hundreds of hours spent reading generated text very closely.",
